@@ -1,0 +1,36 @@
+{
+  "name": "varint-wasm",
+  "version": "0.0.0",
+  "description": "A varint implementation compiled to WASM format",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "nyc -x tests -x varint.js tape tests/*.js"
+  },
+  "keywords": [
+    "varint",
+    "wasm",
+    "codec"
+  ],
+  "author": "Joseph Werle <werle@littlestar.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nyc": "^15.0.1",
+    "tape": "^5.0.0",
+    "varint": "^5.0.0",
+    "wasm2js": "^0.2.0"
+  },
+  "dependencies": {
+    "nanoassert": "^2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/little-core-labs/varint-wasm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/little-core-labs/varint-wasm/issues"
+  },
+  "homepage": "https://github.com/little-core-labs/varint-wasm#readme"
+}

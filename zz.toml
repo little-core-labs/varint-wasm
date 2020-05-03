@@ -1,0 +1,16 @@
+[project]
+version = "0.0.0"
+name = "varint"
+cincludes = []
+cobjects = []
+pkgconfig = []
+
+lflags = []
+cflags = []
+
+[variants]
+default = []
+
+[dependencies]
+
+[repos]

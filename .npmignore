@@ -1,0 +1,6 @@
+tests/
+target/
+node_modules/
+
+Makefile
+example.js

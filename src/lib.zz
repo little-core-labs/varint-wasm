@@ -1,0 +1,56 @@
+const u32 N1 = 128;
+const u32 N2 = 16384;
+const u32 N3 = 2097152;
+const u32 N4 = 268435456;
+
+const u8 MSB = 0x80;
+const u32 REST = 0x7f;
+
+export fn encoding_length(u32 number) -> usize {
+  if number < N1 { return 1; }
+  if number < N2 { return 2; }
+  if number < N3 { return 3; }
+  if number < N4 { return 4; }
+  return 5;
+}
+
+export fn encode(u32 number, u8 mut *out) -> usize
+  where safe(out)
+{
+  usize mut size = 0;
+  u32 mut n = number;
+
+  while 0 != (n & ~REST) {
+    static_attest(len(out) > size);
+    out[size] = ((u8) n & 0xff) | MSB;
+    n = n >> 7;
+    size++;
+  }
+
+  static_attest(len(out) > size);
+  out[size] = (u8) n;
+  size++;
+
+  return size;
+}
+
+export fn decode(u8 *bytes) -> u32
+  where safe(bytes)
+{
+  usize mut index = 0;
+  u32 mut shift = 0;
+  u32 mut n = 0;
+
+  static_attest(len(bytes) > index);
+  while 0 != (bytes[index] & MSB) {
+    static_attest(len(bytes) > index);
+    n += ((u32) bytes[index] & 0x7f) << shift;
+    index += 1;
+    shift += 7;
+  }
+
+  static_attest(len(bytes) > index);
+  n += ((u32) bytes[index] & 0x7f) << shift;
+
+  return n;
+}
