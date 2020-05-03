@@ -1,6 +1,6 @@
 [package]
 name = "jwerle/varint-wasm"
-version = "0.0.1"
+version = "0.1.0"
 description = "A varint implementation written in ZZ compiled to WASM"
 license = "MIT"
 repository = "little-core-labs/varint-wasm"
