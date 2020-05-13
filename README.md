@@ -9,7 +9,7 @@ varint-wasm
 ### Node
 
 ```sh
-$ npm install @little-core-labs/varint-wasm
+$ npm install @12core/varint-wasm
 ```
 
 ### WAPM
